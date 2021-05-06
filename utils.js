@@ -14,7 +14,7 @@ export function getComputerThrow() {
     const randomNumber = Math.ceil(Math.random() * 3);
     let computerThrow;
 
-    if(randomNumber === 3) {
+    if (randomNumber === 3) {
         computerThrow = 'rock';
     } else if (randomNumber === 2) {
         computerThrow = 'paper';

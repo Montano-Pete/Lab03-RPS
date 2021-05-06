@@ -24,12 +24,23 @@ button.addEventListener('click', () => {
 
     const userWon = rockPaperScissors(userChoice, computerChoice);
 
+    console.log(userWon);
 
+    if (userWon === 'user') {
+        wins++;
+        liveResults.textContent = 'You won!';
+        totalWins.textContent = `Your total wins are ${wins}`;
+    } else if (userWon === 'computer') {
+        losses++;
+        liveResults.textContent = 'You lost!';
+        totalLosses.textContent = `Your total losses are ${losses}`;
+    } else if (userWon === 'draw') {
+        draws++;
+        liveResults.textContent = 'A draw!';
+        totalDraws.textContent = `Your total draws are ${draws}`;
+    }
 
-
-
-
-
+    console.log(wins, losses, draws);
 
 
 
