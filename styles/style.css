@@ -79,7 +79,7 @@ header img {
 }
 
 p {
-    margin: var(--gutter);
+    text-align: center;
 }
   
 footer {
@@ -103,4 +103,11 @@ input:checked + img {
 
 #choose-button {
     margin: 5px;
+}
+
+.game-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
