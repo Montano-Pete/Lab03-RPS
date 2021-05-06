@@ -1,30 +1,28 @@
 import { getComputerThrow, rockPaperScissors } from './utils.js';
 
 const button = document.querySelector('#choose-button');
+const resetButton = document.querySelector('#reset-button');
 const liveResults = document.querySelector('#current-results');
 const totalWins = document.querySelector('#total-wins');
 const totalLosses = document.querySelector('#total-losses');
 const totalDraws = document.querySelector('#total-draws');
 
-
-// initialize state
 let wins = 0;
 let losses = 0;
 let draws = 0;
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
-
 button.addEventListener('click', () => {
+
+    liveResults.style.display = 'block';
+    totalWins.style.display = 'block';
+    totalLosses.style.display = 'block';
+    totalDraws.style.display = 'block';
+
     const userChoice = document.querySelector('input:checked').value;
 
     const computerChoice = getComputerThrow();
 
     const userWon = rockPaperScissors(userChoice, computerChoice);
-
-    console.log(userWon);
 
     if (userWon === 'user') {
         wins++;
@@ -39,9 +37,20 @@ button.addEventListener('click', () => {
         liveResults.textContent = 'A draw!';
         totalDraws.textContent = `Your total draws are ${draws}`;
     }
+});
 
-    console.log(wins, losses, draws);
+resetButton.addEventListener('click', () => {
 
+    wins = 0;
+    losses = 0;
+    draws = 0;
 
+    liveResults.style.display = 'none';
+    totalWins.style.display = 'none';
+    totalLosses.style.display = 'none';
+    totalDraws.style.display = 'none';
 
+    totalWins.textContent = '';
+    totalLosses.textContent = '';
+    totalDraws.textContent = '';
 });
