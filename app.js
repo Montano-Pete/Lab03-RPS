@@ -17,13 +17,14 @@ button.addEventListener('click', () => {
     totalWins.style.display = 'block';
     totalLosses.style.display = 'block';
     totalDraws.style.display = 'block';
+    megaFunction(); 
+ 
+});
 
+function megaFunction() {
     const userChoice = document.querySelector('input:checked').value;
-
     const computerChoice = getComputerThrow();
-
     const userWon = rockPaperScissors(userChoice, computerChoice);
-
     if (userWon === 'user') {
         wins++;
         liveResults.textContent = 'You won!';
@@ -37,7 +38,7 @@ button.addEventListener('click', () => {
         liveResults.textContent = 'A draw!';
         totalDraws.textContent = `Your total draws are ${draws}`;
     }
-});
+}
 
 resetButton.addEventListener('click', () => {
 
@@ -54,3 +55,6 @@ resetButton.addEventListener('click', () => {
     totalLosses.textContent = '';
     totalDraws.textContent = '';
 });
+
+
+
