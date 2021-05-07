@@ -12,7 +12,6 @@ let losses = 0;
 let draws = 0;
 
 button.addEventListener('click', () => {
-
     liveResults.style.display = 'block';
     totalWins.style.display = 'block';
     totalLosses.style.display = 'block';
@@ -21,7 +20,36 @@ button.addEventListener('click', () => {
  
 });
 
+
+
+resetButton.addEventListener('click', () => {
+    wins = 0;
+    losses = 0;
+    draws = 0;
+
+    liveResults.style.display = 'none';
+    totalWins.style.display = 'none';
+    totalLosses.style.display = 'none';
+    totalDraws.style.display = 'none';
+
+    totalWins.textContent = '';
+    totalLosses.textContent = '';
+    totalDraws.textContent = '';
+});
+
+
+
+
+
+
+
+// inner working of this function 
 function megaFunction() {
+
+    if (document.querySelector('input:checked') === null) {
+        alert('Please select one of the three options.');
+    } 
+
     const userChoice = document.querySelector('input:checked').value;
     const computerChoice = getComputerThrow();
     const userWon = rockPaperScissors(userChoice, computerChoice);
@@ -39,22 +67,3 @@ function megaFunction() {
         totalDraws.textContent = `Your total draws are ${draws}`;
     }
 }
-
-resetButton.addEventListener('click', () => {
-
-    wins = 0;
-    losses = 0;
-    draws = 0;
-
-    liveResults.style.display = 'none';
-    totalWins.style.display = 'none';
-    totalLosses.style.display = 'none';
-    totalDraws.style.display = 'none';
-
-    totalWins.textContent = '';
-    totalLosses.textContent = '';
-    totalDraws.textContent = '';
-});
-
-
-

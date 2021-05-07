@@ -24,3 +24,5 @@ export function getComputerThrow() {
     
     return computerThrow;
 }
+
+
