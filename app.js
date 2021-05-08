@@ -12,18 +12,34 @@ let losses = 0;
 let draws = 0;
 
 button.addEventListener('click', () => {
-
     liveResults.style.display = 'block';
     totalWins.style.display = 'block';
     totalLosses.style.display = 'block';
     totalDraws.style.display = 'block';
+    gameFunction(); 
+});
+
+resetButton.addEventListener('click', () => {
+    resetFunction(0); 
+});
+
+
+
+
+
+
+
+// inner working of this function 
+function gameFunction() {
+
+    if (document.querySelector('input:checked') === null) {
+        alert('Please select one of the three options.');
+        return; 
+    } 
 
     const userChoice = document.querySelector('input:checked').value;
-
     const computerChoice = getComputerThrow();
-
     const userWon = rockPaperScissors(userChoice, computerChoice);
-
     if (userWon === 'user') {
         wins++;
         liveResults.textContent = 'You won!';
@@ -37,13 +53,12 @@ button.addEventListener('click', () => {
         liveResults.textContent = 'A draw!';
         totalDraws.textContent = `Your total draws are ${draws}`;
     }
-});
+}
 
-resetButton.addEventListener('click', () => {
-
-    wins = 0;
-    losses = 0;
-    draws = 0;
+function resetFunction(zero) {
+    wins = zero;
+    losses = zero;
+    draws = zero;
 
     liveResults.style.display = 'none';
     totalWins.style.display = 'none';
@@ -53,4 +68,4 @@ resetButton.addEventListener('click', () => {
     totalWins.textContent = '';
     totalLosses.textContent = '';
     totalDraws.textContent = '';
-});
+}
