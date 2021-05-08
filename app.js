@@ -16,25 +16,11 @@ button.addEventListener('click', () => {
     totalWins.style.display = 'block';
     totalLosses.style.display = 'block';
     totalDraws.style.display = 'block';
-    megaFunction(); 
- 
+    gameFunction(); 
 });
 
-
-
 resetButton.addEventListener('click', () => {
-    wins = 0;
-    losses = 0;
-    draws = 0;
-
-    liveResults.style.display = 'none';
-    totalWins.style.display = 'none';
-    totalLosses.style.display = 'none';
-    totalDraws.style.display = 'none';
-
-    totalWins.textContent = '';
-    totalLosses.textContent = '';
-    totalDraws.textContent = '';
+    resetFunction(0); 
 });
 
 
@@ -44,10 +30,11 @@ resetButton.addEventListener('click', () => {
 
 
 // inner working of this function 
-function megaFunction() {
+function gameFunction() {
 
     if (document.querySelector('input:checked') === null) {
         alert('Please select one of the three options.');
+        return; 
     } 
 
     const userChoice = document.querySelector('input:checked').value;
@@ -66,4 +53,19 @@ function megaFunction() {
         liveResults.textContent = 'A draw!';
         totalDraws.textContent = `Your total draws are ${draws}`;
     }
+}
+
+function resetFunction(zero) {
+    wins = zero;
+    losses = zero;
+    draws = zero;
+
+    liveResults.style.display = 'none';
+    totalWins.style.display = 'none';
+    totalLosses.style.display = 'none';
+    totalDraws.style.display = 'none';
+
+    totalWins.textContent = '';
+    totalLosses.textContent = '';
+    totalDraws.textContent = '';
 }
